@@ -1,0 +1,186 @@
+:root {
+  --background: #424242;
+  --foreground: #EFEFEF;
+  --text: #616161;
+  --width: 640px;
+  --height: 64px;
+  --font-size: 36px;
+  --danger: rgb(236, 95, 95);
+  --border: 1px solid #616161;
+}
+
+:focus {
+  outline: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  margin: 0;
+
+}
+
+body>* {
+  max-width: var(--width);
+  width: 100%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 64px;
+  color: gray;
+  text-align: center;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--height);
+  background-color: var(--foreground);
+  border: var(--border);
+}
+
+.input:has(input:focus) {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.input--icon {
+    font-size: var(--font-size);
+    margin: 0 16px 0 16px;
+    color: gray;
+
+}
+
+
+.input>input {
+  display: flex;
+  flex: 1;
+  font-size: var(--font-size);
+  width: 100%;
+  border: none;
+  background-color: var(--foreground);
+}
+
+.todos[data-filter="done"] > .todo:not(:has(input:checked)) {
+  display: none;
+}
+
+.todos[data-filter="active"] > .todo:has(input:checked) {
+  display: none;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border: var(--border);
+  background-color: var(--foreground);
+}
+.todo input {
+
+  appearance: none;
+  margin: 0 16px 0 16px;
+  border: 3px #616161 solid;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.todo input:checked {
+  background-color: rgb(100, 236, 100);
+}
+.todo input:checked ~ div {
+  text-decoration: line-through;
+  color: rgb(184, 181, 181);
+
+}
+
+
+
+
+/* TRouBLe */
+
+.todo--title {
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  flex: 1;
+  color: var(--text);
+  font-size: var(--font-size);
+}
+
+.todo--remove {
+  display: none;
+  height: var(--height);
+  align-items: center;
+  margin: 0 16px 0 16px;
+  color: rgb(236, 95, 95);
+  cursor: pointer;
+}
+
+.todo:hover > .todo--remove {
+  display: flex;
+}
+
+.status {
+  height: var(--height);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: var(--border);
+  background-color: var(--foreground);
+  box-shadow: 0 8px 8px rgba(0,0,0,0.5);
+}
+
+.status--counter {
+  font-size: 16px;
+  color: gray;
+  margin: 0 12px 0 12px;
+
+}
+
+.status--filter {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+
+}
+.status--filter input {
+  appearance: none;
+}
+
+.status--filter label {
+  margin: 0 12px 0 12px;
+  font-size: 16px;
+  border: none;
+  color: gray;
+  border: 1px transparent solid;
+  padding: 6px 12px 6px 12px;
+  cursor: pointer;
+
+}
+.status--filter label:hover {
+  background-color: rgb(177, 177, 177) ;
+  color: #fff;
+}
+.status--filter label:has(input:checked)
+{
+  border: 1px #424242 solid;
+}
+
+.status--clear {
+  font-size: 16px;
+  color: var(--danger);
+  margin: 0 12px 0 12px;
+  cursor: pointer;
+}
+.status--clear:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(236, 95, 95);
+
+}
