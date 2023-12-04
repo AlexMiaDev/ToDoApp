@@ -1,3 +1,3 @@
 # ToDoApp
 Todo application 
-https://qaleksei.github.io/ToDoApp/
+https://alexmiadev.github.io/ToDoApp/
